@@ -3,6 +3,8 @@
 This is a Paima DAO smart contract, to be deployed on Astar Network.  
 Shibuya is used as a testnet. Get test tokens [here](https://docs.astar.network/docs/build/environment/faucet/)
 
+Deployed on Shibuya: [0xe67Bd26330263b9830CD4E81e3faE298E8F5e487](https://blockscout.com/shibuya/address/0xe67Bd26330263b9830CD4E81e3faE298E8F5e487)
+
 ### Preparing for usage
 
 1. Install Foundry by following the instructions from [their repository](https://github.com/foundry-rs/foundry#installation).
