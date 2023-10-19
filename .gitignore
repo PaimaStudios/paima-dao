@@ -5,6 +5,7 @@ out/
 # Ignores development broadcast logs
 !/broadcast
 /broadcast/*/31337/
+/broadcast/*/81/
 /broadcast/**/dry-run/
 
 # Docs
@@ -12,3 +13,7 @@ docs/
 
 # Dotenv file
 .env
+
+node_modules
+.gas-snapshot
+lcov.info
