@@ -29,7 +29,28 @@ yarn deploy:localhost
 
 Deploying will automatically verify the smart contracts on Blockscout. To disable this, remove the verifying arguments from the script.
 
+#### WSL2
+
+WSL2 cannot access USB devices in Windows by default, so you will need to expose your Trezor device to WSL2.
+
+1. In WSL2, run the CURL command to install the `udev` rules for Trezor from [here](https://trezor.io/learn/a/udev-rules).
+1. In WSL2, run `sudo service udev restart`
+1. In command prompt, run `winget install usbipd`
+1. In command prompt, run `usbipd list` and look for the BUSID for `TREZOR`
+1. In administrator command prompt, run `usbipd bind --busid=<BUSID>` with the BUSID from step (2).
+1. In command prompt, run `usbipd attach --wsl --busid=<BUSID>` with the BUSID from step (2). **Note**: you will have to re-run this specific step every time you disconnect/reconnect the device
+1. In WSL2, install `trezorctl` by following [this guide](https://trezor.io/learn/a/using-trezorctl-commands) (ignore the Trezor Bridge stuff)
+1. In WSL2, run `lsusb` and see if Trezor appears to ensure the setup worked from the USB perspective
+1. In WSL2, run `trezorctl list` to ensure the setup worked from the Trezor perspective
+
+#### Commands to run
+
 ```bash
+# Load the environment variables from the .env file
+set -a  # automatically export all variables
+source .env
+set +a  # stop automatically exporting variables
+
 yarn deploy:testnet
 yarn deploy:mainnet
 ```

@@ -17,7 +17,7 @@
     "compile": "forge build",
     "compile:sizes": "forge build --sizes",
     "deploy:localhost": "bash -c 'source .env && forge script script/Deploy.s.sol:Deploy --broadcast --private-key $LOCALCHAIN_DEPLOYER_PK --fork-url http://localhost:8545'",
-    "deploy:mainnet": "bash -c 'source .env && forge script script/Deploy.s.sol:Deploy --rpc-url $MAINNET_RPC --broadcast --private-key $DEPLOYER_PK --verify --verifier blockscout --verifier-url https://blockscout.com/astar/api?'",
+    "deploy:mainnet": "bash -c \"source .env && forge script script/Deploy.s.sol:Deploy --rpc-url $MAINNET_RPC --broadcast --trezor --sender 0x4a5c77D244e2eb8F75DeB3aAF4888CE1E2cAfd69 --verify --verifier blockscout --verifier-url https://blockscout.com/astar/api?\"",
     "deploy:testnet": "bash -c 'source .env && forge script script/Deploy.s.sol:Deploy --rpc-url $TESTNET_RPC --broadcast --private-key $DEPLOYER_PK --verify --verifier blockscout --verifier-url https://blockscout.com/shibuya/api?'",
     "format": "prettier --write '**/*.{sol,js,ts}'",
     "lint": "solhint 'src/**/*.sol'",
